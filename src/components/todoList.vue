@@ -20,7 +20,7 @@
         </div>
         <input
           :checked="item.marked"
-          type="checkbox"
+          type="radio"
           @click="onChangeState(idx)"
         />
       </div>
