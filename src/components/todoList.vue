@@ -29,7 +29,7 @@
       <input
         v-if="addTodo"
         class="border-2 border-success rounded-md pl-2 w-44"
-        placeholder="a;adir todo"
+        placeholder="Añadir Todo"
         value="todo"
         type="text"
         @keyup.enter="onActionTodo"
