@@ -1,18 +1,31 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <main class="grid justify-items-center items-center h-screen">
+    <todo-list @addTodo="addTodo" @deleteTodo="deleteTodo" :items="todos" />
+  </main>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+
+import todoList from "@/components/todoList";
 
 export default {
   name: "HomeView",
   components: {
-    HelloWorld,
+    todoList,
+  },
+  computed: {
+    todos() {
+      return this.$store.getters.todos;
+    },
+  },
+  methods: {
+    addTodo(todo) {
+      this.$store.dispatch("pushTodos", todo);
+    },
+    deleteTodo(todo) {
+      this.$store.dispatch("deleteTodo", todo);
+    },
   },
 };
 </script>
